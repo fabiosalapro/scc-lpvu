@@ -1,12 +1,236 @@
 @extends ('template.index')
-
 @section ('content')
-
-    <form>
+<form id="form-principal">
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-10">
-        <h3>Informações do Veterinário</h3>
+            <h3>Informações do Veterinário</h3>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Nome Completo</label>
+                <input type="text" class="form-control" id="veterinario_nome_completo" placeholder="Nome Completo" required="" autofocus="">
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1">
+            <button type="button" id="btn-cad-veterinario" class="btn btn-primary">Cadastrar Veterinário</button>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10">
+            <h3>Informações do Proprietário</h3>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Nome Completo</label>
+                <input type="text" class="form-control" id="proprietario_nome_completo" placeholder="Nome Completo" required="" autofocus="">
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1">
+            <button type="button" id="btn-cad-proprietario" class="btn btn-primary">Cadastrar Proprietário</button>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10">
+            <h3>Informações do Animal</h3>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" class="form-control" id="animal_nome" placeholder="Nome" required="">
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Espécie</label>
+                <input type="text" class="form-control" id="animal_especie" placeholder="Espécie" required="">
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Raça</label>
+                <input type="text" class="form-control" id="animal_raca" placeholder="Raça" required="">
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Sexo</label>
+                <select class="form-control" id="animal_sexo" required="">
+                    <option value="">Selecione</option>
+                    <option value="F">Fêmea</option>
+                    <option value="M">Macho</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Idade</label>
+                <input type="text" class="form-control" id="animal_idade" placeholder="Idade" required="">
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10">
+            <h3>Amostras Para Laboratórios</h3>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Histo</label>
+                <select class="form-control" id="amostras_histo" required="">
+                    <option value="N" selected>Não</option>
+                    <option value="S">Sim</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Micro</label>
+                <select class="form-control" id="amostras_micro" required="">
+                    <option value="N" selected>Não</option>
+                    <option value="S">Sim</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Micol</label>
+                <select class="form-control" id="amostras_micol" required="">
+                    <option value="N" selected>Não</option>
+                    <option value="S">Sim</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Paras</label>
+                <select class="form-control" id="amostras_paras" required="">
+                    <option value="N" selected>Não</option>
+                    <option value="S">Sim</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Citol</label>
+                <select class="form-control" id="amostras_citol" required="">
+                    <option value="N" selected>Não</option>
+                    <option value="S">Sim</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10">
+            <h3>Outras Informações</h3>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Epidemiologia e História Clínica</label>
+                <textarea class="form-control" id="epidemiologia_historia_clinica" placeholder="Epidemiologia e História Clínica" required=""></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Lesões Macroscópicas</label>
+                <textarea class="form-control" id="lesoes_macroscopicas" placeholder="Lesões Macroscópicas" required=""></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Lesões Histológicas</label>
+                <textarea class="form-control" id="lesoes_histologicas" placeholder="Lesões Histológicas" required=""></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Diagnóstico</label>
+                <input type="text" class="form-control" id="diagnostico" placeholder="Diagnóstico" required="">
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Relatório</label>
+                <textarea class="form-control" id="relatorio" placeholder="Relatório" required=""></textarea>
+            </div>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" class="btn btn-default">Limpar</button>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+</form>
+<form style="display: none;" id="form-cadastro-veterinario">
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-10">
+            <h3>Informações do Veterinário</h3>
         </div>
         <div class="col-xs-2"></div>
     </div>
@@ -94,11 +318,22 @@
         </div>
         <div class="col-xs-2"></div>
     </div>
-
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-1">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+        <div class="col-xs-1">
+            <button type="button" id="btn-voltar-veterinario" class="btn btn-default">Voltar</button>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+</form>
+<form style="display: none;" id="form-cadastro-proprietario">
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-10">
-        <h3>Informações do Proprietário</h3>
+            <h3>Informações do Proprietário</h3>
         </div>
         <div class="col-xs-2"></div>
     </div>
@@ -186,186 +421,46 @@
         </div>
         <div class="col-xs-2"></div>
     </div>
-
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-10">
-            <h3>Informações do Animal</h3>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-4">
-            <div class="form-group">
-                <label>Nome</label>
-                <input type="text" class="form-control" id="animal_nome" placeholder="Nome" required="">
-            </div>
-        </div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Espécie</label>
-                <input type="text" class="form-control" id="animal_especie" placeholder="Espécie" required="">
-            </div>
-        </div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Raça</label>
-                <input type="text" class="form-control" id="animal_raca" placeholder="Raça" required="">
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Sexo</label>
-                <select class="form-control" id="animal_sexo" required="">
-                    <option value="">Selecione</option>
-                    <option value="F">Fêmea</option>
-                    <option value="M">Macho</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Idade</label>
-                <input type="text" class="form-control" id="animal_idade" placeholder="Idade" required="">
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-10">
-            <h3>Amostras Para Laboratórios</h3>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Histo</label>
-                <select class="form-control" id="amostras_histo" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Micro</label>
-                <select class="form-control" id="amostras_micro" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Micol</label>
-                <select class="form-control" id="amostras_micol" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Paras</label>
-                <select class="form-control" id="amostras_paras" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label>Citol</label>
-                <select class="form-control" id="amostras_citol" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-10">
-            <h3>Outras Informações</h3>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-            <div class="form-group">
-            <label>Epidemiologia e História Clínica</label>
-            <textarea class="form-control" id="epidemiologia_historia_clinica" placeholder="Epidemiologia e História Clínica" required=""></textarea>
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-            <div class="form-group">
-            <label>Lesões Macroscópicas</label>
-            <textarea class="form-control" id="lesoes_macroscopicas" placeholder="Lesões Macroscópicas" required=""></textarea>
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-            <div class="form-group">
-            <label>Lesões Histológicas</label>
-            <textarea class="form-control" id="lesoes_histologicas" placeholder="Lesões Histológicas" required=""></textarea>
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-            <div class="form-group">
-                <label>Diagnóstico</label>
-                <input type="text" class="form-control" id="diagnostico" placeholder="Diagnóstico" required="">
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-            <div class="form-group">
-            <label>Relatório</label>
-            <textarea class="form-control" id="relatorio" placeholder="Relatório" required=""></textarea>
-            </div>
-        </div>
-        <div class="col-xs-2"></div>
-    </div>
-
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-1">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default">Limpar</button>
+            <button type="button" id="btn-voltar-proprietario" class="btn btn-default">Voltar</button>
         </div>
         <div class="col-xs-2"></div>
     </div>
-    </form>
+</form>
+
+<script>
+    var $form_principal = document.getElementById("form-principal");
+    var $form_cad_veterinario = document.getElementById("form-cadastro-veterinario");
+    var $form_cad_proprietario = document.getElementById("form-cadastro-proprietario");
+    var $btn_cad_veterinario = document.getElementById("btn-cad-veterinario");
+    var $btn_cad_proprietario = document.getElementById("btn-cad-proprietario");
+    var $btn_voltar_veterinario = document.getElementById("btn-voltar-veterinario");
+    var $btn_voltar_proprietario = document.getElementById("btn-voltar-proprietario");
+
+    $btn_cad_veterinario.addEventListener("click", function() {
+        $form_principal.setAttribute("style", "display: none;");
+        $form_cad_veterinario.setAttribute("style", "display: block;");
+    });
+
+    $btn_cad_proprietario.addEventListener("click", function() {
+        $form_principal.setAttribute("style", "display: none;");
+        $form_cad_proprietario.setAttribute("style", "display: block;");
+    });
+
+    $btn_voltar_veterinario.addEventListener("click", function() {
+        $form_principal.setAttribute("style", "display: block;");
+        $form_cad_veterinario.setAttribute("style", "display: none;");
+    });
+
+    $btn_voltar_proprietario.addEventListener("click", function() {
+        $form_principal.setAttribute("style", "display: block;");
+        $form_cad_proprietario.setAttribute("style", "display: none;");
+    });
+</script>
 
 @endsection
