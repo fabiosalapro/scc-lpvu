@@ -1,0 +1,38 @@
+version: "3.1"
+services:
+
+    redis:
+      image: redis:alpine
+      container_name: scc-lpvu-redis
+
+    mysql:
+      image: mysql:5.7
+      container_name: scc-lpvu-mysql
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=lpvu
+        - MYSQL_USER=sysdba
+        - MYSQL_PASSWORD=masterkey
+      ports:
+        - "7072:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: scc-lpvu-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "7070:80"
+
+    php-fpm:
+      build: php-fpm
+      container_name: scc-lpvu-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
