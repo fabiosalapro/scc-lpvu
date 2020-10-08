@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['as' => 'main', 'uses' => 'ConsultaController@main']);
+Route::get('/',                      ['as' => 'inicio',               'uses' => 'ConsultaController@inicio']);
+Route::get('/consulta/cadastro',     ['as' => 'consulta.cadastro',    'uses' => 'ConsultaController@cadastro']);
+Route::post('/consulta/cadastrar',   ['as' => 'consulta.cadastrar',   'uses' => 'ConsultaController@cadastrar']);
