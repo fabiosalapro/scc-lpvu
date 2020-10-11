@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xs-2"></div>
         <div class="col-xs-10">
-            <h3>Cadastro de Consulta</h3>
+            <h3>Visualizar de Consulta</h3>
         </div>
         <div class="col-xs-2"></div>
     </div>
@@ -22,17 +22,17 @@
         <div class="col-xs-2">
             <div class="form-group">
                 <label>Data</label>
-                <input type="text" class="form-control" id="data" name="data" data-mask="00/00/0000" placeholder="00/00/0000" value="{{ $data_atual }}" required="">
+                <input type="text" class="form-control" id="data" name="data" data-mask="00/00/0000" value="{{ $consulta->data }}" disabled="">
             </div>
         </div>
         <div class="col-xs-6">
             <div class="form-group">
                 <label>Veterinário</label>
-                <select class="form-control" id="veterinario_id" name="veterinario_id" required="">
+                <select class="form-control" id="veterinario_id" name="veterinario_id" disabled="">
                     <option value="">Selecione</option>
                     @foreach($veterinarios as $veterinario)
                         @if($veterinario->status === 1)
-                            <option value="{{ $veterinario->id }}">{{ $veterinario->nome_completo }}</option>
+                            <option value="{{ $veterinario->id }}" @if ($veterinario->id === $consulta->veterinario_id) selected @endif>{{ $veterinario->nome_completo }}</option>
                         @endif
                     @endforeach
                 </select>
@@ -45,11 +45,11 @@
         <div class="col-xs-5">
             <div class="form-group">
                 <label>Proprietário</label>
-                <select class="form-control" id="proprietario_id" name="proprietario_id" required="">
+                <select class="form-control" id="proprietario_id" name="proprietario_id" disabled="">
                     <option value="">Selecione</option>
                     @foreach($proprietarios as $proprietario)
                         @if($proprietario->status === 1)
-                            <option value="{{ $proprietario->id }}">{{ $proprietario->nome_completo }}</option>
+                            <option value="{{ $proprietario->id }}" @if ($proprietario->id === $consulta->proprietario_id) selected @endif>{{ $proprietario->nome_completo }}</option>
                         @endif
                     @endforeach
                 </select>
@@ -58,8 +58,13 @@
         <div class="col-xs-3">
             <div class="form-group">
                 <label>Animal</label>
-                <select class="form-control" id="animal_id" name="animal_id" required="">
+                <select class="form-control" id="animal_id" name="animal_id" disabled="">
                     <option value="">Selecione</option>
+                    @foreach($animais as $animal)
+                        @if($animal->status === 1)
+                            <option value="{{ $animal->id }}" @if ($animal->id === $consulta->animal_id) selected @endif>{{ $animal->nome }}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -77,36 +82,36 @@
         <div class="col-xs-2">
             <div class="form-group">
                 <label>Histo</label>
-                <select class="form-control" id="amostras_histo" name="amostras_histo" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
+                <select class="form-control" id="amostras_histo" name="amostras_histo" disabled="">
+                    <option value="N" @if ('N' === $consulta->amostras_histo) selected @endif > Não </option>
+                    <option value="S" @if ('S' === $consulta->amostras_histo) selected @endif > Sim </option>
                 </select>
             </div>
         </div>
         <div class="col-xs-2">
             <div class="form-group">
                 <label>Micro</label>
-                <select class="form-control" id="amostras_micro" name="amostras_micro" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
+                <select class="form-control" id="amostras_micro" name="amostras_micro" disabled="">
+                    <option value="N" @if ('N' === $consulta->amostras_micro) selected @endif > Não </option>
+                    <option value="S" @if ('S' === $consulta->amostras_micro) selected @endif > Sim </option>
                 </select>
             </div>
         </div>
         <div class="col-xs-2">
             <div class="form-group">
                 <label>Micol</label>
-                <select class="form-control" id="amostras_micol" name="amostras_micol" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
+                <select class="form-control" id="amostras_micol" name="amostras_micol" disabled="">
+                    <option value="N" @if ('N' === $consulta->amostras_micol) selected @endif > Não </option>
+                    <option value="S" @if ('S' === $consulta->amostras_micol) selected @endif > Sim </option>
                 </select>
             </div>
         </div>
         <div class="col-xs-2">
             <div class="form-group">
                 <label>Paras</label>
-                <select class="form-control" id="amostras_paras" name="amostras_paras" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
+                <select class="form-control" id="amostras_paras" name="amostras_paras" disabled="">
+                    <option value="N" @if ('N' === $consulta->amostras_paras) selected @endif > Não </option>
+                    <option value="S" @if ('S' === $consulta->amostras_paras) selected @endif > Sim </option>
                 </select>
             </div>
         </div>
@@ -117,9 +122,9 @@
         <div class="col-xs-2">
             <div class="form-group">
                 <label>Citol</label>
-                <select class="form-control" id="amostras_citol" name="amostras_citol" required="">
-                    <option value="N" selected>Não</option>
-                    <option value="S">Sim</option>
+                <select class="form-control" id="amostras_citol" name="amostras_citol" disabled="">
+                    <option value="N" @if ('N' === $consulta->amostras_citol) selected @endif > Não </option>
+                    <option value="S" @if ('S' === $consulta->amostras_citol) selected @endif > Sim </option>
                 </select>
             </div>
         </div>
@@ -137,7 +142,7 @@
         <div class="col-xs-8">
             <div class="form-group">
                 <label>Epidemiologia e História Clínica</label>
-                <textarea class="form-control" id="epidemiologia_e_historia_clinica" name="epidemiologia_e_historia_clinica" placeholder="Epidemiologia e História Clínica" required=""></textarea>
+                <textarea class="form-control" id="epidemiologia_e_historia_clinica" name="epidemiologia_e_historia_clinica" placeholder="Epidemiologia e História Clínica" disabled="">{{ $consulta->epidemiologia_e_historia_clinica }}</textarea>
             </div>
         </div>
         <div class="col-xs-2"></div>
@@ -147,7 +152,7 @@
         <div class="col-xs-8">
             <div class="form-group">
                 <label>Lesões Macroscópicas</label>
-                <textarea class="form-control" id="lesoes_macroscopicas" name="lesoes_macroscopicas" placeholder="Lesões Macroscópicas" required=""></textarea>
+                <textarea class="form-control" id="lesoes_macroscopicas" name="lesoes_macroscopicas" placeholder="Lesões Macroscópicas" disabled="">{{ $consulta->lesoes_macroscopicas }}</textarea>
             </div>
         </div>
         <div class="col-xs-2"></div>
@@ -157,7 +162,7 @@
         <div class="col-xs-8">
             <div class="form-group">
                 <label>Lesões Histológicas</label>
-                <textarea class="form-control" id="lesoes_histologicas" name="lesoes_histologicas" placeholder="Lesões Histológicas" required=""></textarea>
+                <textarea class="form-control" id="lesoes_histologicas" name="lesoes_histologicas" placeholder="Lesões Histológicas" disabled=""> {{ $consulta->lesoes_histologicas }}</textarea>
             </div>
         </div>
         <div class="col-xs-2"></div>
@@ -167,7 +172,7 @@
         <div class="col-xs-8">
             <div class="form-group">
                 <label>Diagnóstico</label>
-                <input type="text" class="form-control" id="diagnostico" name="diagnostico" placeholder="Diagnóstico" required="">
+                <input type="text" class="form-control" id="diagnostico" name="diagnostico" placeholder="Diagnóstico" value="{{ $consulta->diagnostico }}" disabled="">
             </div>
         </div>
         <div class="col-xs-2"></div>
@@ -177,70 +182,18 @@
         <div class="col-xs-8">
             <div class="form-group">
                 <label>Relatório</label>
-                <textarea class="form-control" id="relatorio" name="relatorio" placeholder="Relatório" required=""></textarea>
+                <textarea class="form-control" id="relatorio" name="relatorio" placeholder="Relatório" disabled="">{{ $consulta->relatorio }}</textarea>
             </div>
         </div>
         <div class="col-xs-2"></div>
     </div>
     <div class="row">
         <div class="col-xs-2"></div>
-        <div class="col-xs-1">
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <div class="col-xs-4">
+            <a class="btn btn-default" href="{{ route('consulta.listar') }}" role="button">Voltar</a>
         </div>
         <div class="col-xs-2"></div>
     </div>
 </form>
-
-<script>
-    var $select_proprietario = document.getElementById("proprietario_id");
-    var $select_options = document.getElementsByTagName("option");
-    var $select_animal = document.getElementById("animal_id");
-
-    var $ajax = new XMLHttpRequest();
-
-    function consultaAnimal() {
-        var $index = $select_proprietario.options.selectedIndex;
-        var $proprietario_id = $select_proprietario.options[$index].value;
-
-        function stateChange() {
-            if (requestSuccess()) {
-                var $api_data = JSON.parse($ajax.responseText);
-
-                for($i = 0; $i < $api_data[0].length + 1; $i++) {
-                    $select_animal.remove($select_options);
-                }
-
-                var $option = document.createElement("option");
-                    $option.setAttribute("value", "");
-                    var $value = document.createTextNode("Selecione"); 
-                    $option.appendChild($value); 
-                    $select_animal.appendChild($option);
-
-                for($i = 0; $i < $api_data[0].length; $i++) {
-                    var $option = document.createElement("option");
-                    $option.setAttribute("value", $api_data[0][$i].id);
-                    var $value = document.createTextNode($api_data[0][$i].nome); 
-                    $option.appendChild($value); 
-                    $select_animal.appendChild($option);
-                }
-
-                $ajax.abort();
-            }
-        }
-
-        function requestSuccess() {
-            return $ajax.readyState === 4 && $ajax.status === 200;
-        }
-
-        var $url = '/animal/api/proprietario/'+$proprietario_id+'/';
-
-        $ajax.open("GET", $url);
-        $ajax.send();
-        $ajax.addEventListener('readystatechange', stateChange);
-    }
-
-    $select_proprietario.addEventListener('change', consultaAnimal);
-</script>
-
 
 @endsection
